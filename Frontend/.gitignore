@@ -13,7 +13,10 @@ dist-ssr
 *.local
 
 *.env
-# src/Utilities/Firebase.js
+
+# Ignore Firebase config
+src/Utilities/Firebase.js
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
