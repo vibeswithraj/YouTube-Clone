@@ -1,6 +1,6 @@
-import React, { createContext, useState, useEffect } from "react";
-import axios from "axios";
-import toast from "react-hot-toast";
+import React, { createContext, useState, useEffect } from 'react';
+import axios from 'axios';
+import toast from 'react-hot-toast';
 
 const detailContext = createContext();
 
@@ -17,12 +17,12 @@ const DetailProvider = ({ children }) => {
     const fetchSubscription = async () => {
       try {
         const { data } = await axios.get(
-          "http://localhost:3030/subscriptions"
+          `${import.meta.env.VITE_LOCAL_URL}/subscriptions`
         );
         if (data.error) {
           toast.error(data.error);
         }
-        console.log(data)
+        console.log(data);
         setSubscription(data);
       } catch (error) {
         console.log(error);
@@ -35,7 +35,9 @@ const DetailProvider = ({ children }) => {
     setLoading(true);
     const getData = async () => {
       try {
-        const { data } = await axios.get("http://localhost:3030/data");
+        const { data } = await axios.get(
+          `${import.meta.env.VITE_LOCAL_URL}/data`
+        );
         setAllData(data);
         setLoading(false);
       } catch (error) {

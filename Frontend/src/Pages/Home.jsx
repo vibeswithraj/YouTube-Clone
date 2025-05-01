@@ -18,7 +18,7 @@ export default function Home() {
   const navigate = useNavigate();
 
   const handleVideo = async (id) => {
-    const { data } = await axios.get(`http://localhost:3030/video/${id}`, {
+    const { data } = await axios.get(`${import.meta.env.VITE_LOCAL_URL}${id}`, {
       withCredentials: true,
     });
     if (data.error) {
