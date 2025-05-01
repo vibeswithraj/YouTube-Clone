@@ -15,7 +15,7 @@ dist-ssr
 *.env
 
 # Ignore Firebase config
-src/Utilities/Firebase.js
+# src/Utilities/Firebase.js
 
 # Editor directories and files
 .vscode/*
