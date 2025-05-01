@@ -19,7 +19,7 @@ export default function Home() {
 
   const handleVideo = async (id) => {
     const { data } = await axios.get(
-      `${import.meta.env.VITE_LOCAL_URL}/${id}`,
+      `${import.meta.env.VITE_LOCAL_URL}/video/${id}`,
       {
         withCredentials: true,
       }
