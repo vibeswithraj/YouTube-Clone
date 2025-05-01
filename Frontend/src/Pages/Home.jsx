@@ -1,15 +1,15 @@
-import React, { useContext } from "react";
-import Aside, { CloseAside } from "../Components/Aside";
-import detailContext from "../Contexts/DetailProvider";
-import "../index.css";
-import AllVideos from "../Components/AllVideos";
-import Login from "../Components/Login";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
-import { Avatar, Skeleton } from "@mui/material";
-import { useFeatures } from "../Hooks/useFeatures";
-import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
-import toast from "react-hot-toast";
+import React, { useContext } from 'react';
+import Aside, { CloseAside } from '../Components/Aside';
+import detailContext from '../Contexts/DetailProvider';
+import '../index.css';
+import AllVideos from '../Components/AllVideos';
+import Login from '../Components/Login';
+import MoreVertIcon from '@mui/icons-material/MoreVert';
+import { Avatar, Skeleton } from '@mui/material';
+import { useFeatures } from '../Hooks/useFeatures';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import toast from 'react-hot-toast';
 
 export default function Home() {
   const { asideOpen, theme, popup, allData, loading, setVideoDetail } =
@@ -24,7 +24,7 @@ export default function Home() {
     if (data.error) {
       toast.error(data.error, { duration: 4000 });
     }
-    console.log(data)
+    console.log(data);
     setVideoDetail(data);
     navigate(`/video/${id}`);
   };
@@ -32,15 +32,15 @@ export default function Home() {
   const buttonArr = [
     {
       id: 0,
-      name: "All",
+      name: 'All',
     },
     {
       id: 1,
-      name: "Videos",
+      name: 'Videos',
     },
     {
       id: 2,
-      name: "Shorts",
+      name: 'Shorts',
     },
   ];
 
@@ -48,30 +48,30 @@ export default function Home() {
     <div
       className={
         theme
-          ? "bg-[#0F0F0F] w-auto h-screen text-white"
-          : "w-auto h-screen bg-white text-black"
+          ? 'bg-[#0F0F0F] w-auto h-screen text-white'
+          : 'w-auto h-screen bg-white text-black'
       }
     >
-      {popup && <Login />}
+      {/*popup && <Login />*/}
       <div
         className={
           theme
-            ? "w-full h-full relative bg-[#0F0F0F]  text-white"
-            : "w-full h-full relative bg-white text-black"
+            ? 'w-full h-full relative bg-[#0F0F0F]  text-white'
+            : 'w-full h-full relative bg-white text-black'
         }
       >
         <div
           className={
             theme
-              ? "w-full h-full flex bg-[#0F0F0F] no-scrollbar"
-              : "w-full h-full flex bg-white text-black no-scrollbar"
+              ? 'w-full h-full flex bg-[#0F0F0F] no-scrollbar'
+              : 'w-full h-full flex bg-white text-black no-scrollbar'
           }
         >
           <div
             className={
               asideOpen
-                ? "w-auto h-auto shrink-0 bg-[#0F0F0F]"
-                : "w-[240px] h-auto shrink-0 bg-[#0F0F0F] overflow-y-scroll no-scrollbar"
+                ? 'w-auto h-auto shrink-0 bg-[#0F0F0F]'
+                : 'w-[240px] h-auto shrink-0 bg-[#0F0F0F] overflow-y-scroll no-scrollbar'
             }
           >
             {asideOpen ? <CloseAside /> : <Aside />}
@@ -83,8 +83,8 @@ export default function Home() {
                   key={index}
                   className={
                     item.id === 0
-                      ? "w-fit h-fit py-[5px] px-[12px] rounded-lg text-black text-start text-[15px] font-medium ml-3 flex items-center bg-white"
-                      : "w-fit h-fit py-[5px] px-[12px] rounded-lg text-white text-start text-[15px] font-medium ml-3 flex items-center bg-[#272727] hover:bg-[rgb(255,255,255,0.2)]"
+                      ? 'w-fit h-fit py-[5px] px-[12px] rounded-lg text-black text-start text-[15px] font-medium ml-3 flex items-center bg-white'
+                      : 'w-fit h-fit py-[5px] px-[12px] rounded-lg text-white text-start text-[15px] font-medium ml-3 flex items-center bg-[#272727] hover:bg-[rgb(255,255,255,0.2)]'
                   }
                 >
                   {item?.name}
@@ -92,11 +92,11 @@ export default function Home() {
               ))}
             </div>
             <div
-            id="allVideos"
+              id="allVideos"
               className={
                 asideOpen
-                  ? "w-full flex flex-wrap justify-around items-start pt-5 overflow-y-scroll scroll-smooth bg-[#0F0F0F] text-white no-scrollbar"
-                  : "w-full flex flex-wrap justify-around items-start pt-5 overflow-y-scroll scroll-smooth bg-[#0F0F0F] text-white no-scrollbar"
+                  ? 'w-full flex flex-wrap justify-around items-start pt-5 overflow-y-scroll scroll-smooth bg-[#0F0F0F] text-white no-scrollbar'
+                  : 'w-full flex flex-wrap justify-around items-start pt-5 overflow-y-scroll scroll-smooth bg-[#0F0F0F] text-white no-scrollbar'
               }
             >
               {!loading
@@ -108,8 +108,8 @@ export default function Home() {
                       <div
                         className={
                           asideOpen
-                            ? "w-[330px] h-[190px] relative"
-                            : "w-[357px] h-[208px] relative"
+                            ? 'w-[330px] h-[190px] relative'
+                            : 'w-[357px] h-[208px] relative'
                         }
                       >
                         <Link
@@ -117,13 +117,13 @@ export default function Home() {
                           onClick={() => handleVideo(item?.id)}
                         >
                           <img
-                            src={item?.thumbnailUrl ? item?.thumbnailUrl : ""}
+                            src={item?.thumbnailUrl ? item?.thumbnailUrl : ''}
                             //   width={330}
                             //   height={190}
                             className={
                               asideOpen
-                                ? "w-[330px] h-[190px] shrink-0 object-cover rounded-xl"
-                                : "w-[357px] h-[208px] shrink-0 object-cover rounded-xl"
+                                ? 'w-[330px] h-[190px] shrink-0 object-cover rounded-xl'
+                                : 'w-[357px] h-[208px] shrink-0 object-cover rounded-xl'
                             }
                             alt="thumbnail"
                           />
@@ -135,8 +135,8 @@ export default function Home() {
                       <div
                         className={
                           asideOpen
-                            ? "w-[330px] min-h-[100px] flex justify-between pt-3 pb-1"
-                            : "w-[357px] min-h-[100px] flex justify-between pt-3 pb-1"
+                            ? 'w-[330px] min-h-[100px] flex justify-between pt-3 pb-1'
+                            : 'w-[357px] min-h-[100px] flex justify-between pt-3 pb-1'
                         }
                       >
                         <div className="w-auto h-auto flex gap-[12px]">
@@ -157,8 +157,8 @@ export default function Home() {
                               {item?.author}
                             </p>
                             <p className="w-fit h-auto text-[14px] text-gray-400">
-                              {item?.views + " " + "views *"}
-                              {" " + item?.uploadTime}
+                              {item?.views + ' ' + 'views *'}
+                              {' ' + item?.uploadTime}
                             </p>
                           </div>
                         </div>
